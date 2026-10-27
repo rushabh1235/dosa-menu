@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Young+Serif&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f7f4;--card:#fff;--ink:#12343b;--muted:#5d7377;--line:#d9e3e0;--accent:#0f6b5c;--veg:#1b8a3a;--non:#b3261e;--cur:#12343b}
+@media (prefers-color-scheme:dark){:root{--bg:#0e1f22;--card:#152a2e;--ink:#eaf2ef;--muted:#9bb2b3;--line:#27413f;--accent:#5fd0b8;--veg:#4cc26a;--non:#ef6b62}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "DM Sans",system-ui,sans-serif}
+header{padding:28px 20px 12px;max-width:720px;margin:auto}
+h1{font:400 2rem/1.1 "Young Serif",Georgia,serif;margin:0}
+.tag{color:var(--muted);margin:6px 0 0}
+.bar{position:sticky;top:0;background:var(--bg);z-index:5;border-bottom:1px solid var(--line)}
+.bar-in{max-width:720px;margin:auto;padding:10px 20px}
+input[type=search]{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:inherit}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:10px 0 2px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 14px;border-radius:99px;font:inherit;font-size:.9rem;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--bg);font-weight:700}
+.chip:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+main{max-width:720px;margin:auto;padding:8px 20px 60px}
+h2{font:400 1.4rem "Young Serif",Georgia,serif;margin:28px 0 4px;scroll-margin-top:110px}
+.item{display:flex;gap:12px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.dot{flex:none;width:14px;height:14px;border:2px solid;border-radius:3px;margin-top:5px;position:relative}
+.dot::after{content:"";position:absolute;inset:2px;border-radius:50%;background:currentColor}
+.dot.v{color:var(--veg)}.dot.n{color:var(--non)}
+.body{flex:1;min-width:0}
+.name{font-weight:700}
+.desc{color:var(--muted);font-size:.9rem;margin-top:2px}
+.price{font-weight:700;white-space:nowrap}
+.price::before{content:var(--cur-sym,"₹")}
+.out{opacity:.5}.out .price{text-decoration:line-through}
+.out .name::after{content:" · sold out";font-weight:400;color:var(--muted);font-size:.85rem}
+.msg{text-align:center;color:var(--muted);padding:40px 0}
+.msg button{margin-top:10px;padding:8px 16px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;cursor:pointer}
+footer{text-align:center;color:var(--muted);font-size:.8rem;padding-bottom:30px}
+</style>
+</head>
+<body>
+<header>
+  <h1 id="title">Our Menu</h1>
+  <p class="tag" id="tagline"></p>
+</header>
+<div class="bar"><div class="bar-in">
+  <input type="search" id="q" placeholder="Search the menu" aria-label="Search the menu">
+  <div class="chips" id="chips"></div>
+</div></div>
+<main id="menu"><p class="msg">Loading menu…</p></main>
+<footer id="foot"></footer>
+
+<script>
+/* ============ OWNER / DEVELOPER SETTINGS ============ */
+const CONFIG = {
+  restaurantName: "Your Restaurant Name",
+  tagline: "Fresh food, made daily",
+  currencySymbol: "₹",
+  // Paste your Google Sheet "Publish to web" CSV link between the quotes.
+  // While empty, the page shows sample items so you can preview the design.
+  sheetCsvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRulE2As5A1wcQHYNg7mY-oxNuDMdHUlSTcUXqc7qcP1_E1MbphVsbqGqwvUqQDDXU21jDcV44-V4Vb/pub?gid=0&single=true&output=csv"
+};
+/* ====================================================== */
+
+const SAMPLE = `Category,Item,Price,Description,Veg,Available
+Starters,Paneer Tikka,220,Char-grilled cottage cheese with mint chutney,Veg,Yes
+Starters,Chicken 65,260,Crisp fried chicken with curry leaves,Non-veg,Yes
+Main Course,Dal Tadka,180,Yellow lentils tempered with garlic and ghee,Veg,Yes
+Main Course,Butter Chicken,320,Creamy tomato gravy,Non-veg,No
+Breads,Butter Naan,45,,Veg,Yes
+Drinks,Masala Chai,30,,Veg,Yes
+Drinks,Sweet Lassi,80,Thick and chilled,Veg,Yes`;
+
+document.title = CONFIG.restaurantName + " – Menu";
+document.getElementById("title").textContent = CONFIG.restaurantName;
+document.getElementById("tagline").textContent = CONFIG.tagline;
+document.documentElement.style.setProperty("--cur-sym", JSON.stringify(CONFIG.currencySymbol));
+
+const $ = id => document.getElementById(id);
+let items = [], activeCat = "All";
+
+// CSV parser that handles quotes, commas and line breaks inside cells
+function parseCSV(text){
+  const rows = []; let row = [], cell = "", q = false;
+  for (let i = 0; i < text.length; i++){
+    const c = text[i];
+    if (q){
+      if (c === '"'){ if (text[i+1] === '"'){ cell += '"'; i++; } else q = false; }
+      else cell += c;
+    } else if (c === '"') q = true;
+    else if (c === ","){ row.push(cell); cell = ""; }
+    else if (c === "\n" || c === "\r"){
+      if (c === "\r" && text[i+1] === "\n") i++;
+      row.push(cell); rows.push(row); row = []; cell = "";
+    } else cell += c;
+  }
+  if (cell || row.length){ row.push(cell); rows.push(row); }
+  return rows;
+}
+
+function toItems(csv){
+  const rows = parseCSV(csv).filter(r => r.some(c => c.trim()));
+  if (rows.length < 2) return [];
+  const head = rows[0].map(h => h.trim().toLowerCase());
+  const col = n => head.indexOf(n);
+  const get = (r, n) => (r[col(n)] || "").trim();
+  return rows.slice(1).map(r => ({
+    cat: get(r, "category") || "Other",
+    name: get(r, "item"),
+    price: get(r, "price"),
+    desc: get(r, "description"),
+    veg: !/^non/i.test(get(r, "veg")),
+    out: /^(no|n|false|0|sold)/i.test(get(r, "available"))
+  })).filter(i => i.name);
+}
+
+function esc(s){ return s.replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+
+function render(){
+  const term = $("q").value.trim().toLowerCase();
+  const cats = [...new Set(items.map(i => i.cat))];
+  $("chips").innerHTML = ["All", ...cats].map(c =>
+    `<button class="chip" aria-pressed="${c === activeCat}" data-c="${esc(c)}">${esc(c)}</button>`).join("");
+
+  const list = items.filter(i =>
+    (activeCat === "All" || i.cat === activeCat) &&
+    (!term || (i.name + " " + i.desc).toLowerCase().includes(term)));
+
+  if (!list.length){
+    $("menu").innerHTML = `<p class="msg">${items.length ? "No dishes match your search." : "The menu is empty right now."}</p>`;
+    return;
+  }
+  $("menu").innerHTML = [...new Set(list.map(i => i.cat))].map(c =>
+    `<h2>${esc(c)}</h2>` + list.filter(i => i.cat === c).map(i => `
+    <div class="item${i.out ? " out" : ""}">
+      <span class="dot ${i.veg ? "v" : "n"}" role="img" aria-label="${i.veg ? "Vegetarian" : "Non-vegetarian"}"></span>
+      <div class="body"><div class="name">${esc(i.name)}</div>${i.desc ? `<div class="desc">${esc(i.desc)}</div>` : ""}</div>
+      <div class="price">${esc(i.price)}</div>
+    </div>`).join("")).join("");
+}
+
+async function load(){
+  $("menu").innerHTML = '<p class="msg">Loading menu…</p>';
+  let csv = null;
+  if (!CONFIG.sheetCsvUrl) csv = SAMPLE;
+  else {
+    try {
+      const r = await fetch(CONFIG.sheetCsvUrl, { cache: "no-store" });
+      if (!r.ok) throw new Error(r.status);
+      csv = await r.text();
+      try { localStorage.setItem("menu-csv", csv); } catch(e){}
+    } catch(e){
+      try { csv = localStorage.getItem("menu-csv"); } catch(e2){}   // offline fallback
+    }
+  }
+  if (!csv){
+    $("menu").innerHTML = '<p class="msg">Could not load the menu. Check your connection.<br><button id="retry">Try again</button></p>';
+    $("retry").onclick = load;
+    return;
+  }
+  items = toItems(csv);
+  if (!CONFIG.sheetCsvUrl) $("foot").textContent = "Showing sample items. Add your Google Sheet link in index.html.";
+  render();
+}
+
+$("q").addEventListener("input", render);
+$("chips").addEventListener("click", e => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  activeCat = b.dataset.c; render();
+});
+load();
+</script>
+</body>
+</html>
