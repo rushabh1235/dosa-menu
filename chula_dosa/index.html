@@ -2,163 +2,224 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Our Menu</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1c5a3b">
+<title>Menu</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Young+Serif&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f4f7f4;--card:#fff;--ink:#12343b;--muted:#5d7377;--line:#d9e3e0;--accent:#0f6b5c;--veg:#1b8a3a;--non:#b3261e;--cur:#12343b}
-@media (prefers-color-scheme:dark){:root{--bg:#0e1f22;--card:#152a2e;--ink:#eaf2ef;--muted:#9bb2b3;--line:#27413f;--accent:#5fd0b8;--veg:#4cc26a;--non:#ef6b62}}
-*{box-sizing:border-box}
+:root{
+  --leaf:#1c5a3b; --turmeric:#f0a81c; --bg:#f6f8f3; --card:#fff;
+  --ink:#16261d; --muted:#64766b; --line:#e2e9e1; --veg:#1f8f43; --non:#c0392b;
+  --r:16px; --sh:0 1px 2px rgba(20,50,30,.06),0 6px 18px rgba(20,50,30,.06);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0f1a14; --card:#17261d; --ink:#ecf3ee; --muted:#94a89b; --line:#26382d;
+  --veg:#4cc26a; --non:#ef6b62; --sh:none}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "DM Sans",system-ui,sans-serif}
-header{padding:28px 20px 12px;max-width:720px;margin:auto}
-h1{font:400 2rem/1.1 "Young Serif",Georgia,serif;margin:0}
-.tag{color:var(--muted);margin:6px 0 0}
-.bar{position:sticky;top:0;background:var(--bg);z-index:5;border-bottom:1px solid var(--line)}
-.bar-in{max-width:720px;margin:auto;padding:10px 20px}
-input[type=search]{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:inherit}
-.chips{display:flex;gap:8px;overflow-x:auto;padding:10px 0 2px;scrollbar-width:none}
-.chips::-webkit-scrollbar{display:none}
-.chip{flex:none;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 14px;border-radius:99px;font:inherit;font-size:.9rem;cursor:pointer}
-.chip[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--bg);font-weight:700}
-.chip:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-main{max-width:720px;margin:auto;padding:8px 20px 60px}
-h2{font:400 1.4rem "Young Serif",Georgia,serif;margin:28px 0 4px;scroll-margin-top:110px}
-.item{display:flex;gap:12px;padding:14px 0;border-bottom:1px dashed var(--line)}
-.dot{flex:none;width:14px;height:14px;border:2px solid;border-radius:3px;margin-top:5px;position:relative}
+
+.hero{background:var(--leaf);color:#fff;padding:calc(34px + env(safe-area-inset-top)) 20px 64px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;opacity:.14;background:radial-gradient(circle,#fff 1.5px,transparent 2px) 0 0/22px 22px}
+.hero-in{max-width:760px;margin:auto;position:relative}
+.hero h1{font:800 clamp(2rem,8vw,3rem)/1.05 "Bricolage Grotesque",system-ui,sans-serif;margin:0;letter-spacing:-.02em}
+.hero p{margin:8px 0 0;color:#cfe5d8;font-size:1.02rem}
+.info{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.pill{display:inline-flex;align-items:center;background:rgba(255,255,255,.14);color:#fff;text-decoration:none;padding:7px 14px;border-radius:99px;font-size:.88rem;font-weight:500}
+a.pill{background:var(--turmeric);color:#2b2000;font-weight:700}
+
+.bar{position:sticky;top:0;z-index:20;background:var(--bg);margin-top:-30px;border-radius:24px 24px 0 0;box-shadow:0 -10px 24px rgba(0,0,0,.08);padding-top:env(safe-area-inset-top)}
+.bar-in{max-width:760px;margin:auto;padding:16px 16px 0}
+.row{display:flex;gap:10px}
+.search{flex:1;position:relative;display:block}
+.search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;stroke:var(--muted);fill:none;stroke-width:2}
+input[type=search]{width:100%;padding:12px 14px 12px 40px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);font:inherit;appearance:none}
+.veg-btn{flex:none;display:flex;align-items:center;gap:8px;padding:0 14px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);font:inherit;font-size:.9rem;font-weight:500;cursor:pointer}
+.veg-btn[aria-pressed=true]{border-color:var(--veg);background:color-mix(in srgb,var(--veg) 12%,var(--card));font-weight:700}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:12px 0 0;scrollbar-width:none;border-bottom:1px solid var(--line)}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;background:none;border:0;border-bottom:3px solid transparent;color:var(--muted);padding:8px 12px 11px;font:inherit;font-weight:500;cursor:pointer;white-space:nowrap}
+.tab[aria-current=true]{color:var(--leaf);border-color:var(--turmeric);font-weight:700}
+@media (prefers-color-scheme:dark){.tab[aria-current=true],.price{color:#8be0ad}}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--turmeric);outline-offset:2px}
+
+main{max-width:760px;margin:auto;padding:4px 16px 40px}
+section{scroll-margin-top:118px}
+h2{font:800 1.35rem/1.2 "Bricolage Grotesque",system-ui,sans-serif;margin:26px 2px 12px;letter-spacing:-.01em;display:flex;align-items:baseline;gap:8px}
+h2 small{font:500 .85rem "DM Sans",sans-serif;color:var(--muted)}
+.item{display:flex;gap:14px;background:var(--card);border-radius:var(--r);padding:14px;margin-bottom:10px;box-shadow:var(--sh);border:1px solid var(--line)}
+.item img{flex:none;width:92px;height:92px;border-radius:12px;object-fit:cover;background:var(--line)}
+.body{flex:1;min-width:0;display:flex;flex-direction:column}
+.top{display:flex;gap:8px;align-items:flex-start}
+.dot{flex:none;width:16px;height:16px;border:2px solid;border-radius:4px;margin-top:3px;position:relative}
 .dot::after{content:"";position:absolute;inset:2px;border-radius:50%;background:currentColor}
 .dot.v{color:var(--veg)}.dot.n{color:var(--non)}
-.body{flex:1;min-width:0}
-.name{font-weight:700}
-.desc{color:var(--muted);font-size:.9rem;margin-top:2px}
-.price{font-weight:700;white-space:nowrap}
-.price::before{content:var(--cur-sym,"₹")}
-.out{opacity:.5}.out .price{text-decoration:line-through}
-.out .name::after{content:" · sold out";font-weight:400;color:var(--muted);font-size:.85rem}
-.msg{text-align:center;color:var(--muted);padding:40px 0}
-.msg button{margin-top:10px;padding:8px 16px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;cursor:pointer}
-footer{text-align:center;color:var(--muted);font-size:.8rem;padding-bottom:30px}
+.name{font-weight:700;font-size:1.04rem;line-height:1.3;flex:1}
+.desc{color:var(--muted);font-size:.9rem;margin:4px 0 0 24px}
+.foot{display:flex;align-items:center;gap:8px;margin:auto 0 0 24px;padding-top:8px}
+.price{font-weight:800;font-size:1.08rem;color:var(--leaf)}
+.price::before{content:var(--cur,"₹");font-weight:500;margin-right:1px}
+.tag{background:var(--turmeric);color:#2b2000;font-size:.72rem;font-weight:700;padding:2px 9px;border-radius:99px}
+.out{opacity:.55}.out .price{text-decoration:line-through}
+.sold{font-size:.78rem;font-weight:700;color:var(--non)}
+.msg{text-align:center;color:var(--muted);padding:48px 12px}
+.msg button{margin-top:12px;padding:9px 18px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;cursor:pointer}
+.skel{height:92px;border-radius:var(--r);background:linear-gradient(90deg,var(--line),var(--card),var(--line));background-size:200% 100%;animation:sh 1.2s infinite;margin-bottom:10px}
+@keyframes sh{to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.skel{animation:none}}
+footer{text-align:center;color:var(--muted);font-size:.8rem;padding:0 20px calc(30px + env(safe-area-inset-bottom))}
+@media (max-width:380px){.item img{width:76px;height:76px}.veg-btn span:last-child{display:none}}
 </style>
 </head>
 <body>
-<header>
+<header class="hero"><div class="hero-in">
   <h1 id="title">Our Menu</h1>
-  <p class="tag" id="tagline"></p>
-</header>
+  <p id="tagline"></p>
+  <div class="info" id="info"></div>
+</div></header>
+
 <div class="bar"><div class="bar-in">
-  <input type="search" id="q" placeholder="Search the menu" aria-label="Search the menu">
-  <div class="chips" id="chips"></div>
+  <div class="row">
+    <label class="search">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" id="q" placeholder="Search dishes" aria-label="Search dishes">
+    </label>
+    <button class="veg-btn" id="veg" aria-pressed="false" title="Show vegetarian only">
+      <span class="dot v" style="margin:0"></span><span>Veg only</span>
+    </button>
+  </div>
+  <nav class="tabs" id="tabs" aria-label="Menu categories"></nav>
 </div></div>
-<main id="menu"><p class="msg">Loading menu…</p></main>
+
+<main id="menu"><div class="skel"></div><div class="skel"></div><div class="skel"></div></main>
 <footer id="foot"></footer>
 
 <script>
 /* ============ OWNER / DEVELOPER SETTINGS ============ */
 const CONFIG = {
-  restaurantName: "Your Restaurant Name",
-  tagline: "Fresh food, made daily",
+  restaurantName: "Chula Dosa",
+  tagline: "Crisp dosas, made fresh to order",
   currencySymbol: "₹",
-  // Paste your Google Sheet "Publish to web" CSV link between the quotes.
-  // While empty, the page shows sample items so you can preview the design.
+  openingHours: "Open 7 PM – 11 PM",   // e.g. "Open 8 AM – 10 PM"  (leave "" to hide)
+  phone: "",          // e.g. "919876543210" (country code, no + or spaces) adds a Call button
+  // Paste your Google Sheet "Publish to web" CSV link here:
   sheetCsvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRulE2As5A1wcQHYNg7mY-oxNuDMdHUlSTcUXqc7qcP1_E1MbphVsbqGqwvUqQDDXU21jDcV44-V4Vb/pub?gid=0&single=true&output=csv"
 };
+/* Sheet columns: Category, Item, Price, Description, Veg, Available
+   Optional extra columns: Image (photo link), Tag (e.g. Bestseller)   */
 /* ====================================================== */
 
-const SAMPLE = `Category,Item,Price,Description,Veg,Available
-Starters,Paneer Tikka,220,Char-grilled cottage cheese with mint chutney,Veg,Yes
-Starters,Chicken 65,260,Crisp fried chicken with curry leaves,Non-veg,Yes
-Main Course,Dal Tadka,180,Yellow lentils tempered with garlic and ghee,Veg,Yes
-Main Course,Butter Chicken,320,Creamy tomato gravy,Non-veg,No
-Breads,Butter Naan,45,,Veg,Yes
-Drinks,Masala Chai,30,,Veg,Yes
-Drinks,Sweet Lassi,80,Thick and chilled,Veg,Yes`;
-
-document.title = CONFIG.restaurantName + " – Menu";
-document.getElementById("title").textContent = CONFIG.restaurantName;
-document.getElementById("tagline").textContent = CONFIG.tagline;
-document.documentElement.style.setProperty("--cur-sym", JSON.stringify(CONFIG.currencySymbol));
+const SAMPLE = `Category,Item,Price,Description,Veg,Available,Tag
+Dosa,Plain Dosa,60,Crisp golden dosa with sambar and chutneys,Veg,Yes,
+Dosa,Masala Dosa,90,Potato masala folded inside a crisp dosa,Veg,Yes,Bestseller
+Dosa,Cheese Dosa,120,Loaded with melted cheese,Veg,Yes,
+Dosa,Egg Dosa,110,Dosa topped with spiced egg,Non-veg,No,
+Idli & Vada,Idli (2 pcs),50,Soft steamed idli with sambar,Veg,Yes,
+Idli & Vada,Medu Vada,60,Crunchy lentil doughnut,Veg,Yes,
+Drinks,Filter Coffee,35,,Veg,Yes,Bestseller
+Drinks,Sweet Lassi,60,Thick and chilled,Veg,Yes,`;
 
 const $ = id => document.getElementById(id);
-let items = [], activeCat = "All";
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let items = [], vegOnly = false, spy = null;
 
-// CSV parser that handles quotes, commas and line breaks inside cells
-function parseCSV(text){
-  const rows = []; let row = [], cell = "", q = false;
-  for (let i = 0; i < text.length; i++){
-    const c = text[i];
-    if (q){
-      if (c === '"'){ if (text[i+1] === '"'){ cell += '"'; i++; } else q = false; }
-      else cell += c;
-    } else if (c === '"') q = true;
-    else if (c === ","){ row.push(cell); cell = ""; }
-    else if (c === "\n" || c === "\r"){
-      if (c === "\r" && text[i+1] === "\n") i++;
-      row.push(cell); rows.push(row); row = []; cell = "";
-    } else cell += c;
+document.title = CONFIG.restaurantName + " – Menu";
+$("title").textContent = CONFIG.restaurantName;
+$("tagline").textContent = CONFIG.tagline;
+document.documentElement.style.setProperty("--cur", JSON.stringify(CONFIG.currencySymbol));
+if (CONFIG.openingHours) $("info").innerHTML += `<span class="pill">${esc(CONFIG.openingHours)}</span>`;
+if (CONFIG.phone) $("info").innerHTML += `<a class="pill" href="tel:+${esc(CONFIG.phone)}">Call us</a>`;
+
+function parseCSV(t){
+  const rows=[]; let r=[], c="", q=false;
+  for (let i=0;i<t.length;i++){
+    const ch=t[i];
+    if (q){ if(ch==='"'){ if(t[i+1]==='"'){c+='"';i++;} else q=false; } else c+=ch; }
+    else if (ch==='"') q=true;
+    else if (ch===","){ r.push(c); c=""; }
+    else if (ch==="\n"||ch==="\r"){ if(ch==="\r"&&t[i+1]==="\n") i++; r.push(c); rows.push(r); r=[]; c=""; }
+    else c+=ch;
   }
-  if (cell || row.length){ row.push(cell); rows.push(row); }
+  if (c||r.length){ r.push(c); rows.push(r); }
   return rows;
 }
 
 function toItems(csv){
-  const rows = parseCSV(csv).filter(r => r.some(c => c.trim()));
+  const rows = parseCSV(csv).filter(r => r.some(x => x.trim()));
   if (rows.length < 2) return [];
   const head = rows[0].map(h => h.trim().toLowerCase());
-  const col = n => head.indexOf(n);
-  const get = (r, n) => (r[col(n)] || "").trim();
+  const get = (r,n) => { const i = head.indexOf(n); return i < 0 ? "" : (r[i]||"").trim(); };
   return rows.slice(1).map(r => ({
-    cat: get(r, "category") || "Other",
-    name: get(r, "item"),
-    price: get(r, "price"),
-    desc: get(r, "description"),
-    veg: !/^non/i.test(get(r, "veg")),
-    out: /^(no|n|false|0|sold)/i.test(get(r, "available"))
+    cat: get(r,"category") || "Other",
+    name: get(r,"item"), price: get(r,"price"), desc: get(r,"description"),
+    img: /^https?:\/\//i.test(get(r,"image")) ? get(r,"image") : "",
+    tag: get(r,"tag"),
+    veg: !/^non/i.test(get(r,"veg")),
+    out: /^(no|n|false|0|sold)/i.test(get(r,"available"))
   })).filter(i => i.name);
 }
 
-function esc(s){ return s.replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function card(i){
+  return `<article class="item${i.out?" out":""}">
+    ${i.img ? `<img src="${esc(i.img)}" alt="" loading="lazy" onerror="this.remove()">` : ""}
+    <div class="body">
+      <div class="top"><span class="dot ${i.veg?"v":"n"}" role="img" aria-label="${i.veg?"Vegetarian":"Non-vegetarian"}"></span>
+        <div class="name">${esc(i.name)}</div></div>
+      ${i.desc ? `<div class="desc">${esc(i.desc)}</div>` : ""}
+      <div class="foot"><span class="price">${esc(i.price)}</span>
+        ${i.tag && !i.out ? `<span class="tag">${esc(i.tag)}</span>` : ""}
+        ${i.out ? `<span class="sold">Sold out</span>` : ""}</div>
+    </div></article>`;
+}
 
 function render(){
   const term = $("q").value.trim().toLowerCase();
-  const cats = [...new Set(items.map(i => i.cat))];
-  $("chips").innerHTML = ["All", ...cats].map(c =>
-    `<button class="chip" aria-pressed="${c === activeCat}" data-c="${esc(c)}">${esc(c)}</button>`).join("");
-
-  const list = items.filter(i =>
-    (activeCat === "All" || i.cat === activeCat) &&
-    (!term || (i.name + " " + i.desc).toLowerCase().includes(term)));
-
+  const list = items.filter(i => (!vegOnly || i.veg) && (!term || (i.name+" "+i.desc).toLowerCase().includes(term)));
+  const cats = [...new Set(list.map(i => i.cat))];
+  $("tabs").innerHTML = cats.map((c,k) => `<button class="tab" data-id="c${k}"${k===0?' aria-current="true"':""}>${esc(c)}</button>`).join("");
   if (!list.length){
-    $("menu").innerHTML = `<p class="msg">${items.length ? "No dishes match your search." : "The menu is empty right now."}</p>`;
+    $("menu").innerHTML = `<p class="msg">${items.length ? "No dishes match. Try clearing the search or the Veg filter." : "The menu is empty right now."}</p>`;
     return;
   }
-  $("menu").innerHTML = [...new Set(list.map(i => i.cat))].map(c =>
-    `<h2>${esc(c)}</h2>` + list.filter(i => i.cat === c).map(i => `
-    <div class="item${i.out ? " out" : ""}">
-      <span class="dot ${i.veg ? "v" : "n"}" role="img" aria-label="${i.veg ? "Vegetarian" : "Non-vegetarian"}"></span>
-      <div class="body"><div class="name">${esc(i.name)}</div>${i.desc ? `<div class="desc">${esc(i.desc)}</div>` : ""}</div>
-      <div class="price">${esc(i.price)}</div>
-    </div>`).join("")).join("");
+  $("menu").innerHTML = cats.map((c,k) => {
+    const g = list.filter(i => i.cat === c);
+    return `<section id="c${k}"><h2>${esc(c)}<small>${g.length} item${g.length>1?"s":""}</small></h2>${g.map(card).join("")}</section>`;
+  }).join("");
+  watch();
+}
+
+// highlight the tab of the section currently on screen
+function watch(){
+  if (spy) spy.disconnect();
+  spy = new IntersectionObserver(es => {
+    es.forEach(e => { if (!e.isIntersecting) return;
+      document.querySelectorAll(".tab").forEach(t => {
+        const on = t.dataset.id === e.target.id;
+        if (on){ t.setAttribute("aria-current","true"); t.scrollIntoView({inline:"center",block:"nearest"}); }
+        else t.removeAttribute("aria-current");
+      });
+    });
+  }, {rootMargin:"-130px 0px -70% 0px"});
+  document.querySelectorAll("main section").forEach(s => spy.observe(s));
 }
 
 async function load(){
-  $("menu").innerHTML = '<p class="msg">Loading menu…</p>';
   let csv = null;
   if (!CONFIG.sheetCsvUrl) csv = SAMPLE;
   else {
     try {
-      const r = await fetch(CONFIG.sheetCsvUrl, { cache: "no-store" });
+      const r = await fetch(CONFIG.sheetCsvUrl, {cache:"no-store"});
       if (!r.ok) throw new Error(r.status);
       csv = await r.text();
       try { localStorage.setItem("menu-csv", csv); } catch(e){}
-    } catch(e){
-      try { csv = localStorage.getItem("menu-csv"); } catch(e2){}   // offline fallback
-    }
+    } catch(e){ try { csv = localStorage.getItem("menu-csv"); } catch(e2){} }
   }
   if (!csv){
-    $("menu").innerHTML = '<p class="msg">Could not load the menu. Check your connection.<br><button id="retry">Try again</button></p>';
-    $("retry").onclick = load;
+    $("menu").innerHTML = '<p class="msg">Could not load the menu. Check your internet connection.<br><button id="retry">Try again</button></p>';
+    $("retry").onclick = () => { $("menu").innerHTML='<div class="skel"></div><div class="skel"></div>'; load(); };
     return;
   }
   items = toItems(csv);
@@ -167,9 +228,10 @@ async function load(){
 }
 
 $("q").addEventListener("input", render);
-$("chips").addEventListener("click", e => {
-  const b = e.target.closest(".chip"); if (!b) return;
-  activeCat = b.dataset.c; render();
+$("veg").addEventListener("click", e => { vegOnly = !vegOnly; e.currentTarget.setAttribute("aria-pressed", vegOnly); render(); });
+$("tabs").addEventListener("click", e => {
+  const b = e.target.closest(".tab"); if (!b) return;
+  document.getElementById(b.dataset.id)?.scrollIntoView({behavior:"smooth"});
 });
 load();
 </script>
