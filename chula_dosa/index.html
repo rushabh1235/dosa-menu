@@ -1,239 +1,261 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#1c5a3b">
-<title>Menu</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#173f32">
+<meta name="description" content="Fresh, flavourful South Indian food at Chula Dosa. Explore our menu.">
+<title>Chula Dosa — South Indian Kitchen</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{
-  --leaf:#1c5a3b; --turmeric:#f0a81c; --bg:#f6f8f3; --card:#fff;
-  --ink:#16261d; --muted:#64766b; --line:#e2e9e1; --veg:#1f8f43; --non:#c0392b;
-  --r:16px; --sh:0 1px 2px rgba(20,50,30,.06),0 6px 18px rgba(20,50,30,.06);
-}
-@media (prefers-color-scheme:dark){:root{
-  --bg:#0f1a14; --card:#17261d; --ink:#ecf3ee; --muted:#94a89b; --line:#26382d;
-  --veg:#4cc26a; --non:#ef6b62; --sh:none}}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "DM Sans",system-ui,sans-serif}
+:root{--forest:#173f32;--forest2:#245844;--leaf:#527c4d;--turmeric:#f4b63f;--cream:#fffaf0;--paper:#f7f3e9;--ink:#202b23;--muted:#72786d;--line:#e8e1d2;--card:#fffdf8;--red:#b94c35;--shadow:0 12px 34px #2b39220d;--radius:22px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:155px}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.5 "DM Sans",sans-serif}button,input{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--turmeric);outline-offset:3px}.wrap{max-width:1120px;margin:auto;padding:0 22px}
+.topline{height:7px;background:repeating-linear-gradient(135deg,var(--turmeric) 0 10px,#fff0c7 10px 20px)}
+.hero{position:relative;overflow:hidden;background:var(--forest);color:white;padding:26px 0 78px}
+.hero:before,.hero:after{content:"";position:absolute;border:1px solid #ffffff18;border-radius:50%;pointer-events:none}
+.hero:before{width:390px;height:390px;right:-100px;top:-180px;box-shadow:0 0 0 22px #ffffff08,0 0 0 46px #ffffff06}
+.hero:after{width:260px;height:260px;left:-150px;bottom:-190px;box-shadow:0 0 0 22px #ffffff08}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:14px;position:relative;z-index:1}
+.brand{display:flex;align-items:center;gap:12px}.brand-mark{display:grid;place-items:center;width:48px;height:48px;background:var(--turmeric);color:var(--forest);border-radius:50% 50% 50% 12px;font:800 15px/1 "DM Sans",sans-serif;letter-spacing:-1px;box-shadow:0 6px 18px #0002;border:1px solid #ffe3a0}.brand-name{font:800 clamp(25px,3.1vw,34px)/1 "Playfair Display",serif;letter-spacing:.15px;text-shadow:0 2px 16px #0002}.brand-sub{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#d6e1d5;margin-top:5px}
+.nav-actions{display:flex;gap:8px;flex-shrink:0}.icon-btn{width:42px;height:42px;border:1px solid #ffffff30;background:#ffffff10;color:#fff;border-radius:14px;font-size:18px}.hero-content{position:relative;z-index:1;display:grid;grid-template-columns:1.3fr .7fr;align-items:center;gap:24px;padding-top:46px}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:#ffda85;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700}.eyebrow:before{content:"";width:25px;height:2px;background:var(--turmeric)}h1{font:800 clamp(38px,6vw,66px)/1.03 "Playfair Display",serif;letter-spacing:-1.7px;margin:14px 0 14px;max-width:680px}h1 em{font-style:normal;color:var(--turmeric)}.intro{color:#d8e3d9;max-width:510px;font-size:16px;margin:0}.hero-pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}.pill{border:1px solid #ffffff28;background:#ffffff0c;border-radius:99px;padding:8px 12px;color:#f4f4e9;font-size:12px}.hero-art{justify-self:end;width:min(100%,310px);aspect-ratio:1;border-radius:50%;border:1px solid #f4b63f60;display:grid;place-items:center;position:relative;background:radial-gradient(circle,#35664b 0 43%,#204d3b 44% 64%,#173f32 65%);box-shadow:0 0 0 13px #ffffff08,0 20px 50px #0002}.hero-art .plate{width:72%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#fff7e3 0 55%,#ead4a5 56% 61%,#fff7e3 62%);border:9px solid #fff5df;box-shadow:0 12px 28px #0004;display:grid;place-items:center;color:var(--forest);font:800 clamp(18px,3vw,27px)/1.15 "Playfair Display",serif;letter-spacing:2px;text-align:center}.hero-art .plate span{display:block;font:700 9px "DM Sans",sans-serif;letter-spacing:3px;margin-top:8px}.floating{position:absolute;background:var(--cream);color:var(--forest);padding:10px 14px;border-radius:14px;font-weight:700;font-size:12px;box-shadow:0 10px 24px #0002}.floating.one{top:12%;right:-4%}.floating.two{bottom:12%;left:-6%}
+main{margin-top:-33px;position:relative;z-index:3}.menu-shell{background:var(--cream);border-radius:28px 28px 0 0;padding:22px 0 46px;min-height:350px;box-shadow:0 -12px 35px #0b26180d}.toolbar{display:grid;grid-template-columns:minmax(180px,1fr) auto auto;gap:10px;align-items:center}.searchbox{position:relative}.searchbox span{position:absolute;left:15px;top:50%;transform:translateY(-50%);font-size:17px;color:var(--muted)}.searchbox input{width:100%;border:1px solid var(--line);border-radius:15px;background:white;padding:13px 14px 13px 43px;color:var(--ink)}.tool-btn{border:1px solid var(--line);background:white;border-radius:14px;padding:12px 14px;color:var(--ink);white-space:nowrap;font-weight:600}.tool-btn.active{background:#e7f0e4;border-color:#8aac80;color:var(--forest)}.category-strip{display:flex;gap:9px;overflow:auto;padding:19px 0 15px;scrollbar-width:none}.category-strip::-webkit-scrollbar{display:none}.cat-btn{flex:none;border:1px solid var(--line);background:#fffdf8;border-radius:999px;padding:9px 15px;color:#626a5f;font-size:13px;font-weight:600}.cat-btn.active{background:var(--forest);border-color:var(--forest);color:#fff}.section-heading{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:24px 0 14px}.section-heading h2{font:700 27px/1.15 "Playfair Display",serif;margin:0;color:var(--forest)}.section-heading p{margin:5px 0 0;color:var(--muted);font-size:13px}.count{color:var(--muted);font-size:12px;white-space:nowrap}.featured{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}.feature{position:relative;min-height:124px;overflow:hidden;background:linear-gradient(135deg,#e6ead7,#f8e8bd);border-radius:18px;padding:16px;display:flex;align-items:center;justify-content:space-between;gap:5px}.feature:nth-child(2){background:linear-gradient(135deg,#f4e0c5,#f9efdb)}.feature:nth-child(3){background:linear-gradient(135deg,#dce9d8,#f2edcf)}.feature small{display:block;text-transform:uppercase;letter-spacing:1.2px;font-size:9px;font-weight:800;color:var(--forest);opacity:.75}.feature strong{display:block;font:700 17px/1.2 "Playfair Display",serif;color:var(--forest);margin-top:6px;max-width:145px}.feature .feature-number{font:700 34px/1 "Playfair Display",serif;color:#244a35;opacity:.72;letter-spacing:-2px}.feature:after{content:"";position:absolute;width:95px;height:95px;border:1px solid #244a3525;border-radius:50%;right:-25px;bottom:-42px;pointer-events:none}.menu-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.item-name{letter-spacing:-.15px}.section-heading{border-bottom:1px solid var(--line);padding-bottom:14px}.category-strip{padding-top:20px}.cat-btn{transition:background .18s,border-color .18s,transform .18s}.cat-btn:hover{transform:translateY(-1px)}.item{display:flex;gap:0;padding:18px 19px;background:var(--card);border:1px solid var(--line);border-radius:19px;box-shadow:var(--shadow);min-width:0;transition:transform .18s,border-color .18s;position:relative;overflow:hidden}.item:before{content:"";position:absolute;left:0;top:17px;bottom:17px;width:3px;border-radius:0 4px 4px 0;background:var(--turmeric);opacity:.9}.item:hover{transform:translateY(-3px);border-color:#b7c7ad;box-shadow:0 15px 35px #2b392214}.item:hover{transform:translateY(-2px);border-color:#c6d2bb}.food-visual{display:none}.item-main{display:flex;flex-direction:column;min-width:0;flex:1;width:100%}.item-top{display:flex;align-items:flex-start;gap:7px}.vegmark{width:15px;height:15px;flex:none;border:1.5px solid #25804b;border-radius:4px;display:grid;place-items:center;margin-top:3px}.vegmark:after{content:"";width:6px;height:6px;border-radius:50%;background:#25804b}.vegmark.non{border-color:#bd4d37}.vegmark.non:after{background:#bd4d37}.item-name{font-weight:700;font-size:15px;line-height:1.25;flex:1}.heart{border:0;background:transparent;color:#a0a399;padding:0 1px;font-size:20px;line-height:1}.heart.saved{color:#c84f42}.description{color:var(--muted);font-size:12px;line-height:1.45;margin:6px 0 9px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.item-bottom{display:flex;align-items:center;gap:8px;margin-top:auto;flex-wrap:wrap}.price{font-size:17px;font-weight:800;color:var(--forest);background:#f2f0e4;padding:4px 10px;border-radius:9px;letter-spacing:.1px}body.dark .price{background:#263b2c}.tag{background:#fff0c7;color:#79551b;font-size:9px;font-weight:800;letter-spacing:.7px;padding:5px 8px;border-radius:6px;text-transform:uppercase}.sold{color:var(--red);font-size:11px;font-weight:700}.item.out{opacity:.58}.item.out .price{text-decoration:line-through}.empty{padding:45px 15px;text-align:center;color:var(--muted);background:#fff;border:1px dashed var(--line);border-radius:20px}.empty .big{font-size:40px}.empty h3{color:var(--forest);font:700 22px "Playfair Display",serif;margin:10px 0 4px}.footer{background:var(--forest);color:#e4eee3;padding:34px 0 28px;text-align:center}.footer-mark{font-size:26px}.footer h3{font:700 24px "Playfair Display",serif;margin:5px 0}.footer p{color:#c1d1c4;font-size:12px;margin:6px 0}.footer a{color:var(--turmeric);text-decoration:none}.footer .ornament{color:var(--turmeric);letter-spacing:8px;margin-bottom:10px}.backtop{position:fixed;right:18px;bottom:18px;z-index:9;border:0;border-radius:50%;width:46px;height:46px;background:var(--turmeric);color:var(--forest);font-size:20px;box-shadow:0 6px 20px #0002;display:none}.backtop.show{display:block}.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--forest);color:white;padding:10px 16px;border-radius:99px;font-size:13px;z-index:20;transition:.2s}.toast.show{opacity:1;transform:translate(-50%,0)}.skeleton{height:130px;border-radius:18px;background:linear-gradient(90deg,#eee7d9,#fffaf0,#eee7d9);background-size:200% 100%;animation:shine 1.2s infinite}@keyframes shine{to{background-position:-200% 0}}body.dark{--paper:#111e17;--cream:#17271e;--card:#1c2e23;--ink:#f1f3e9;--muted:#a7b4a6;--line:#304236;--forest:#9ac59b;--forest2:#245844;--shadow:none}body.dark .hero{background:#102b21}body.dark .searchbox input,body.dark .tool-btn,body.dark .cat-btn:not(.active),body.dark .empty{background:#1c2e23;color:var(--ink)}body.dark .feature{filter:brightness(.83)}body.dark .feature .feature-number{color:#173f32}body.dark .item{background:var(--card)}body.dark .price{color:#b4e2b2}body.dark .section-heading h2,body.dark .empty h3{color:#b4e2b2}body.dark .vegmark{border-color:#7fce91}body.dark .vegmark:after{background:#7fce91}
+@media(max-width:760px){.hero-content{grid-template-columns:1fr;padding-top:35px}.hero-art{position:absolute;width:145px;right:0;top:38px;opacity:.9}.hero-copy{position:relative;z-index:1;padding-right:90px}.hero-art .plate{font-size:60px;border-width:5px}.floating{display:none}.hero{padding-bottom:65px}.toolbar{grid-template-columns:1fr auto auto}.searchbox{grid-column:1/-1}.tool-btn{padding:11px 12px;font-size:12px}.featured{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.feature{padding:12px;min-height:115px;display:block}.feature .feature-number{font-size:28px;display:block;margin-top:10px}.feature strong{font-size:14px}.menu-grid{grid-template-columns:1fr}.food-visual{display:none}.wrap{padding:0 16px}.section-heading h2{font-size:24px}}
+@media(max-width:390px){.hero-copy{padding-right:45px}.hero-art{width:112px;top:52px;right:-8px;opacity:.65}.hero-art .plate{font-size:44px}.brand-name{font-size:18px}.hero-pills{gap:6px}.pill{font-size:10px;padding:7px 9px}.featured{grid-template-columns:1fr}.feature{min-height:90px;display:flex}.feature .feature-number{margin:0;font-size:32px}.toolbar{grid-template-columns:1fr 1fr}.searchbox{grid-column:1/-1}.tool-btn{width:100%}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 
-.hero{background:var(--leaf);color:#fff;padding:calc(34px + env(safe-area-inset-top)) 20px 64px;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;opacity:.14;background:radial-gradient(circle,#fff 1.5px,transparent 2px) 0 0/22px 22px}
-.hero-in{max-width:760px;margin:auto;position:relative}
-.hero h1{font:800 clamp(2rem,8vw,3rem)/1.05 "Bricolage Grotesque",system-ui,sans-serif;margin:0;letter-spacing:-.02em}
-.hero p{margin:8px 0 0;color:#cfe5d8;font-size:1.02rem}
-.info{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.pill{display:inline-flex;align-items:center;background:rgba(255,255,255,.14);color:#fff;text-decoration:none;padding:7px 14px;border-radius:99px;font-size:.88rem;font-weight:500}
-a.pill{background:var(--turmeric);color:#2b2000;font-weight:700}
+/* Chula Dosa refinements: South Indian kolam-inspired details and clearer item hierarchy */
+.hero{background-image:radial-gradient(circle at 12% 18%,#f4b63f12 0 2px,transparent 3px),radial-gradient(circle at 14% 22%,#ffffff0a 0 1px,transparent 2px)}
+.hero:before{border-style:dashed;border-color:#f4b63f35}
+.topline{height:8px;background:repeating-linear-gradient(135deg,#d79b2d 0 7px,#fff0c7 7px 14px,#285a42 14px 21px)}
+.brand-mark{width:54px;height:54px;font-size:17px;border-radius:50% 50% 50% 13%;}
+.brand-sub{letter-spacing:2.3px;font-size:10px}
+.item{padding:17px 17px 16px 19px;border-radius:17px;background-image:linear-gradient(135deg,#fffdf8,#fffaf0)}
+.item-top{display:flex;align-items:flex-start;gap:9px;width:100%}
+.item-titlegroup{display:flex;align-items:center;flex-wrap:wrap;gap:7px;min-width:0;flex:1}
+.item-name{flex:0 1 auto;font-size:16px;line-height:1.3;color:var(--forest);}
+.item .price{flex:none;margin-left:auto;white-space:nowrap;font-size:17px;padding:5px 10px;border:1px solid #e9dfc6;background:#f7f0dc;border-radius:10px;line-height:1.2}
+.tag{display:inline-flex;align-items:center;background:#f4e2ad;color:#654719;border:1px solid #e8d08b;font-size:9px;line-height:1.2;padding:4px 7px;border-radius:999px;letter-spacing:.55px}
+.description{margin:8px 0 0 24px;max-width:calc(100% - 24px);font-size:12.5px;line-height:1.5}
+.item-status{margin:7px 0 0 24px}
+body.dark .item{background-image:none}
+body.dark .item-name{color:#c6e5c2}
+body.dark .item .price{background:#263b2c;border-color:#3c5942;color:#e5d29a}
+body.dark .tag{background:#453a20;border-color:#6b572b;color:#f5d989}
+@media(max-width:390px){.brand-name{font-size:24px}.brand-mark{width:48px;height:48px}.item{padding:15px 12px 14px 16px}.item-name{font-size:15px}.item .price{font-size:15px;padding:5px 8px}.item-top{gap:7px}.description{margin-left:22px}}
 
-.bar{position:sticky;top:0;z-index:20;background:var(--bg);margin-top:-30px;border-radius:24px 24px 0 0;box-shadow:0 -10px 24px rgba(0,0,0,.08);padding-top:env(safe-area-inset-top)}
-.bar-in{max-width:760px;margin:auto;padding:16px 16px 0}
-.row{display:flex;gap:10px}
-.search{flex:1;position:relative;display:block}
-.search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;stroke:var(--muted);fill:none;stroke-width:2}
-input[type=search]{width:100%;padding:12px 14px 12px 40px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);font:inherit;appearance:none}
-.veg-btn{flex:none;display:flex;align-items:center;gap:8px;padding:0 14px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);font:inherit;font-size:.9rem;font-weight:500;cursor:pointer}
-.veg-btn[aria-pressed=true]{border-color:var(--veg);background:color-mix(in srgb,var(--veg) 12%,var(--card));font-weight:700}
-.tabs{display:flex;gap:6px;overflow-x:auto;padding:12px 0 0;scrollbar-width:none;border-bottom:1px solid var(--line)}
-.tabs::-webkit-scrollbar{display:none}
-.tab{flex:none;background:none;border:0;border-bottom:3px solid transparent;color:var(--muted);padding:8px 12px 11px;font:inherit;font-weight:500;cursor:pointer;white-space:nowrap}
-.tab[aria-current=true]{color:var(--leaf);border-color:var(--turmeric);font-weight:700}
-@media (prefers-color-scheme:dark){.tab[aria-current=true],.price{color:#8be0ad}}
-button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--turmeric);outline-offset:2px}
 
-main{max-width:760px;margin:auto;padding:4px 16px 40px}
-section{scroll-margin-top:118px}
-h2{font:800 1.35rem/1.2 "Bricolage Grotesque",system-ui,sans-serif;margin:26px 2px 12px;letter-spacing:-.01em;display:flex;align-items:baseline;gap:8px}
-h2 small{font:500 .85rem "DM Sans",sans-serif;color:var(--muted)}
-.item{display:flex;gap:14px;background:var(--card);border-radius:var(--r);padding:14px;margin-bottom:10px;box-shadow:var(--sh);border:1px solid var(--line)}
-.item img{flex:none;width:92px;height:92px;border-radius:12px;object-fit:cover;background:var(--line)}
-.body{flex:1;min-width:0;display:flex;flex-direction:column}
-.top{display:flex;gap:8px;align-items:flex-start}
-.dot{flex:none;width:16px;height:16px;border:2px solid;border-radius:4px;margin-top:3px;position:relative}
-.dot::after{content:"";position:absolute;inset:2px;border-radius:50%;background:currentColor}
-.dot.v{color:var(--veg)}.dot.n{color:var(--non)}
-.name{font-weight:700;font-size:1.04rem;line-height:1.3;flex:1}
-.desc{color:var(--muted);font-size:.9rem;margin:4px 0 0 24px}
-.foot{display:flex;align-items:center;gap:8px;margin:auto 0 0 24px;padding-top:8px}
-.price{font-weight:800;font-size:1.08rem;color:var(--leaf)}
-.price::before{content:var(--cur,"₹");font-weight:500;margin-right:1px}
-.tag{background:var(--turmeric);color:#2b2000;font-size:.72rem;font-weight:700;padding:2px 9px;border-radius:99px}
-.out{opacity:.55}.out .price{text-decoration:line-through}
-.sold{font-size:.78rem;font-weight:700;color:var(--non)}
-.msg{text-align:center;color:var(--muted);padding:48px 12px}
-.msg button{margin-top:12px;padding:9px 18px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;cursor:pointer}
-.skel{height:92px;border-radius:var(--r);background:linear-gradient(90deg,var(--line),var(--card),var(--line));background-size:200% 100%;animation:sh 1.2s infinite;margin-bottom:10px}
-@keyframes sh{to{background-position:-200% 0}}
-@media (prefers-reduced-motion:reduce){.skel{animation:none}}
-footer{text-align:center;color:var(--muted);font-size:.8rem;padding:0 20px calc(30px + env(safe-area-inset-bottom))}
-@media (max-width:380px){.item img{width:76px;height:76px}.veg-btn span:last-child{display:none}}
+/* Final polish: stronger shop branding, consistent menu cards, accessible dark theme */
+.brand{gap:14px;min-width:0}
+.brand-mark{width:62px;height:62px;font-size:19px;box-shadow:0 0 0 4px #f4b63f22,0 8px 22px #0003}
+.brand-name{display:inline-block;font-size:clamp(34px,4.4vw,46px);font-weight:800;line-height:1.03;letter-spacing:.2px;color:#fff7df;text-shadow:0 2px 0 #102d21,0 0 22px #f4b63f36}
+.brand-name:after{content:"";display:block;width:72%;height:3px;margin-top:6px;border-radius:9px;background:linear-gradient(90deg,#f4b63f,#ffe7a0,transparent)}
+.brand-sub{font-size:10px;letter-spacing:2.5px;color:#e1e9d9;margin-top:7px}
+.menu-grid{align-items:stretch;grid-auto-rows:1fr;gap:14px}
+.item{height:100%;min-height:126px;display:flex;align-items:stretch;padding:18px 18px 17px 20px;border-radius:18px}
+.item-main{min-height:88px;display:flex;flex-direction:column;justify-content:flex-start}
+.item-top{min-height:27px;align-items:flex-start;gap:9px}
+.item-titlegroup{align-items:center;align-content:flex-start;row-gap:6px}
+.item-name{font-size:16px;line-height:1.35;overflow-wrap:anywhere}
+.item .price{align-self:flex-start;margin-left:auto;flex-shrink:0;font-size:17px;line-height:1.2;padding:6px 11px}
+.description{min-height:36px;margin:8px 0 0 24px;font-size:12.5px;line-height:1.45;-webkit-line-clamp:2}
+.item-status{margin-top:auto;padding-top:8px}
+/* Dark theme uses deep green surfaces, warm readable text and deliberate contrast. */
+body.dark{--paper:#101914;--cream:#17231c;--card:#1c2b22;--ink:#f5f2e8;--muted:#c0cbbf;--line:#3a4b3e;--forest:#f2d38a;--forest2:#284b38;--leaf:#a9d1a4;--red:#ff9b85;--shadow:0 10px 28px #0003;background:var(--paper);color:var(--ink)}
+body.dark .hero{background:#0b2118;color:#fffdf5}
+body.dark .hero:before,body.dark .hero:after{border-color:#f4b63f26}
+body.dark .brand-name{color:#fff2c8;text-shadow:0 2px 0 #07160f,0 0 22px #f4b63f25}
+body.dark .brand-sub{color:#d0dfd0}
+body.dark .menu-shell{background:#17231c;box-shadow:0 -12px 35px #0002}
+body.dark .searchbox input,body.dark .tool-btn,body.dark .cat-btn:not(.active),body.dark .empty{background:#223329;color:#f5f2e8;border-color:#435748}
+body.dark .searchbox input::placeholder{color:#b8c6b8}
+body.dark .tool-btn.active{background:#34563e;border-color:#7eae80;color:#fff4d3}
+body.dark .cat-btn{color:#e8eee5}
+body.dark .cat-btn.active{background:#e3b64f;border-color:#e3b64f;color:#1a2b20}
+body.dark .section-heading h2,body.dark .empty h3{color:#f2d38a}
+body.dark .section-heading p,body.dark .count{color:#c0cbbf}
+body.dark .item{background:#1c2b22;background-image:linear-gradient(135deg,#203329,#19271f);border-color:#3a4b3e;box-shadow:0 8px 24px #0002}
+body.dark .item:before{background:#e3b64f}
+body.dark .item-name{color:#fff3d1}
+body.dark .description{color:#c5d0c4}
+body.dark .item .price{background:#3a3523;border-color:#6b5b35;color:#ffe3a0}
+body.dark .tag{background:#493b1d;border-color:#80672f;color:#ffe3a0}
+body.dark .vegmark{border-color:#8bd49a}
+body.dark .vegmark:after{background:#8bd49a}
+body.dark .vegmark.non{border-color:#ff9b85}
+body.dark .vegmark.non:after{background:#ff9b85}
+body.dark .feature,body.dark .feature:nth-child(2),body.dark .feature:nth-child(3){filter:none;background:linear-gradient(135deg,#263d2d,#3c3a24);border:1px solid #4b6049}
+body.dark .feature small{color:#e8d69e;opacity:1}
+body.dark .feature strong{color:#fff2d1}
+body.dark .feature .feature-number{color:#f2d38a;opacity:.85}
+body.dark .feature:after{border-color:#f2d38a30}
+body.dark .footer{background:#091b13;color:#f5f2e8;border-top:1px solid #344b3a}
+body.dark .footer p{color:#c4d0c5}
+body.dark .icon-btn{background:#ffffff12;border-color:#ffffff40;color:#fff4d3}
+body.dark .backtop{background:#f2c45e;color:#14251a}
+body.dark .toast{background:#f2c45e;color:#14251a}
+@media(max-width:760px){.brand-name{font-size:clamp(31px,6vw,39px)}.brand-mark{width:56px;height:56px}.item{min-height:122px}}
+@media(max-width:390px){.brand{gap:10px}.brand-name{font-size:29px;letter-spacing:0}.brand-mark{width:47px;height:47px;font-size:15px}.brand-sub{font-size:8px;letter-spacing:1.8px}.item{padding:15px 12px 14px 16px}.item-name{font-size:15px}.item .price{font-size:15px;padding:5px 8px}.description{margin-left:22px;min-height:36px}}
+
+
+/* Larger, cleaner menu cards: no price-sorting control; prices remain prominent on each dish. */
+.toolbar{grid-template-columns:minmax(0,1fr) auto;gap:14px}
+.menu-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:stretch;grid-auto-rows:1fr}
+.item{min-height:178px;padding:24px 24px 22px 27px;border-radius:22px}
+.item:before{top:22px;bottom:22px;width:4px}
+.item-main{gap:0}
+.item-top{align-items:flex-start;gap:12px}
+.vegmark{width:17px;height:17px;margin-top:5px}
+.vegmark:after{width:7px;height:7px}
+.item-titlegroup{min-width:0;flex:1}
+.item-name{font-size:20px;line-height:1.3;letter-spacing:-.25px;overflow-wrap:anywhere}
+.item .price{font-size:21px;padding:8px 13px;border-radius:12px;margin-left:8px;line-height:1.15}
+.tag{display:inline-block;margin-top:8px;font-size:10px;padding:6px 9px}
+.description{min-height:44px;margin:14px 0 0 29px;font-size:14px;line-height:1.55;-webkit-line-clamp:3}
+.item-status{margin:10px 0 0 29px}
+body.dark .item{border-color:#354c3d}
+body.dark .item .price{background:#3a3523;border-color:#6b5b35;color:#ffe3a0}
+@media(max-width:760px){.toolbar{grid-template-columns:minmax(0,1fr) auto}.menu-grid{grid-template-columns:1fr;gap:14px}.item{min-height:160px;padding:21px 20px 20px 24px}.item-name{font-size:19px}.item .price{font-size:20px}.description{font-size:14px;min-height:0;margin-top:12px}}
+@media(max-width:420px){.toolbar{grid-template-columns:1fr}.toolbar .tool-btn{justify-self:start}.item{padding:19px 15px 18px 20px}.item-top{gap:8px}.item-name{font-size:17px}.item .price{font-size:18px;padding:7px 9px;margin-left:3px}.description{margin-left:25px;font-size:13px}}
+
+
+/* Balanced medium-sized menu cards */
+.item{min-height:132px;padding:17px 18px 16px 21px;border-radius:17px}
+.item-name{font-size:16px;line-height:1.3;letter-spacing:-.1px}
+.item .price{font-size:17px;line-height:1.2;padding:5px 9px;border-radius:9px;margin-left:8px}
+.tag{font-size:9px;padding:4px 7px;margin-top:6px}
+.description{min-height:34px;margin:9px 0 0 25px;font-size:12.5px;line-height:1.45;-webkit-line-clamp:2}
+.menu-grid{gap:12px}
+@media(max-width:760px){.item{min-height:128px;padding:16px 17px 15px 21px}.item-name{font-size:16px}.item .price{font-size:16px;padding:5px 8px}.description{font-size:12.5px;min-height:32px;margin-top:8px}}
+@media(max-width:420px){.item{min-height:120px;padding:15px 12px 14px 17px}.item-name{font-size:15px}.item .price{font-size:15px;padding:5px 8px;margin-left:5px}.description{margin-left:22px;font-size:12px;min-height:30px}}
+
+
+/* Compact menu cards: reduced height, padding, and typography */
+.item{min-height:94px;padding:12px 13px 11px 16px;border-radius:13px}
+.item-top{gap:6px}
+.item-name{font-size:14px;line-height:1.25;letter-spacing:0}
+.item .price{font-size:14px;line-height:1.1;padding:4px 7px;border-radius:7px;margin-left:4px}
+.tag{font-size:8px;padding:3px 6px;margin-top:4px}
+.description{min-height:0;margin:6px 0 0 21px;font-size:11px;line-height:1.35;-webkit-line-clamp:2}
+.menu-grid{gap:9px}
+@media(max-width:760px){.item{min-height:88px;padding:11px 12px 10px 15px}.item-name{font-size:14px}.item .price{font-size:13px;padding:4px 6px}.description{font-size:11px;margin-top:5px;min-height:0}}
+@media(max-width:420px){.item{min-height:82px;padding:10px 10px 9px 13px}.item-name{font-size:13px}.item .price{font-size:13px;padding:4px 6px;margin-left:2px}.description{margin-left:19px;font-size:10.5px}.menu-grid{gap:8px}}
+
+
+/* Slightly larger text while keeping the compact card layout */
+.item-name{font-size:15px;line-height:1.28}
+.item .price{font-size:15px;padding:4px 7px}
+.description{font-size:12px;line-height:1.4;margin-top:6px}
+@media(max-width:760px){.item-name{font-size:15px}.item .price{font-size:14px}.description{font-size:12px}}
+@media(max-width:420px){.item-name{font-size:14px}.item .price{font-size:14px}.description{font-size:11.5px}}
+
+/* Wider page layout: reduce the empty gutters on both sides */
+.wrap{max-width:100%;width:100%;padding-left:14px;padding-right:14px}
+.menu-shell{border-radius:24px 24px 0 0}
+@media(max-width:760px){.wrap{padding-left:10px;padding-right:10px}.menu-shell{border-radius:18px 18px 0 0}}
 </style>
 </head>
 <body>
-<header class="hero"><div class="hero-in">
-  <h1 id="title">Our Menu</h1>
-  <p id="tagline"></p>
-  <div class="info" id="info"></div>
-</div></header>
-
-<div class="bar"><div class="bar-in">
-  <div class="row">
-    <label class="search">
-      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input type="search" id="q" placeholder="Search dishes" aria-label="Search dishes">
-    </label>
-    <button class="veg-btn" id="veg" aria-pressed="false" title="Show vegetarian only">
-      <span class="dot v" style="margin:0"></span><span>Veg only</span>
-    </button>
+<div class="topline"></div>
+<header class="hero">
+ <div class="wrap">
+  <div class="nav">
+   <div class="brand"><div class="brand-mark">CD</div><div><div class="brand-name" id="brandName">Chula Dosa</div><div class="brand-sub">South Indian Kitchen</div></div></div>
+   <div class="nav-actions"><button class="icon-btn" id="shareBtn" aria-label="Share menu" title="Share menu">↗</button><button class="icon-btn" id="themeBtn" aria-label="Toggle dark mode" title="Toggle dark mode">☾</button></div>
   </div>
-  <nav class="tabs" id="tabs" aria-label="Menu categories"></nav>
-</div></div>
-
-<main id="menu"><div class="skel"></div><div class="skel"></div><div class="skel"></div></main>
-<footer id="foot"></footer>
-
+  <div class="hero-content">
+   <div class="hero-copy"><div class="eyebrow">A little taste of the South</div><h1 id="heroTitle">Tradition served<br><em>hot & crispy.</em></h1><p class="intro" id="tagline">From golden dosas to comforting filter coffee — discover your South Indian favourites, made fresh with love.</p>
+    <div class="hero-pills"><span class="pill">✦ Freshly prepared</span><span class="pill">South Indian flavours</span><span class="pill" id="hoursPill">Made with care</span></div>
+   </div>
+   <div class="hero-art" aria-hidden="true"><div class="plate">CHULA<span>AUTHENTIC • SOUTH INDIAN</span></div><div class="floating one">✦ Fresh & crispy</div><div class="floating two">Made fresh daily</div></div>
+  </div>
+ </div>
+</header>
+<main class="wrap">
+ <div class="menu-shell">
+  <div class="toolbar">
+   <label class="searchbox"><span>⌕</span><input id="search" type="search" placeholder="Find your favourite dish…" aria-label="Search menu"></label>
+   <button class="tool-btn" id="vegBtn" aria-pressed="false">🟢 Veg only</button>
+  </div>
+  <nav class="category-strip" id="categories" aria-label="Menu categories"><button class="cat-btn active">All dishes</button></nav>
+  <div class="section-heading"><div><h2>Namaste, food lover!</h2><p>Find something delicious for your next bite.</p></div><div class="count" id="count">Loading menu…</div></div>
+  <div class="featured" id="featured">
+   <div class="feature"><div><small>South Indian classic</small><strong>Golden & crispy</strong></div><span class="feature-number">01</span></div>
+   <div class="feature"><div><small>Comfort in a bite</small><strong>Soft, fluffy idlis</strong></div><span class="feature-number">02</span></div>
+   <div class="feature"><div><small>Perfect finish</small><strong>Filter coffee time</strong></div><span class="feature-number">03</span></div>
+  </div>
+  <div id="menu" class="menu-grid" aria-live="polite"><div class="skeleton"></div><div class="skeleton"></div></div>
+ </div>
+</main>
+<footer class="footer"><div class="wrap"><div class="ornament">✦ ❋ ✦</div><div class="footer-mark">✦</div><h3 id="footerName">Chula Dosa</h3><p>Good food. Warm hearts. A little South Indian soul.</p><p id="footerHours"></p><p id="footerCall"></p><p style="margin-top:18px">Made with <span style="color:#f4b63f">♥</span> for food lovers</p></div></footer>
+<button class="backtop" id="backTop" aria-label="Back to top">↑</button><div class="toast" id="toast" role="status"></div>
 <script>
-/* ============ OWNER / DEVELOPER SETTINGS ============ */
+/* OWNER SETTINGS — edit these values for your restaurant. */
 const CONFIG = {
   restaurantName: "Chula Dosa",
-  tagline: "Crisp dosas, made fresh to order",
+  tagline: "From golden dosas to comforting filter coffee — discover your South Indian favourites, made fresh with love.",
   currencySymbol: "₹",
-  openingHours: "Open 7 PM – 11 PM",   // e.g. "Open 8 AM – 10 PM"  (leave "" to hide)
-  phone: "123456789",          // e.g. "919876543210" (country code, no + or spaces) adds a Call button
-  // Paste your Google Sheet "Publish to web" CSV link here:
+  openingHours: "Open 7 PM – 11 PM",
+  phone: "123456789", // Add country code + number with digits only, e.g. 919876543210. Leave blank to hide.
   sheetCsvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRulE2As5A1wcQHYNg7mY-oxNuDMdHUlSTcUXqc7qcP1_E1MbphVsbqGqwvUqQDDXU21jDcV44-V4Vb/pub?gid=0&single=true&output=csv"
 };
-/* Sheet columns: Category, Item, Price, Description, Veg, Available
-   Optional extra columns: Image (photo link), Tag (e.g. Bestseller)   */
-/* ====================================================== */
-
+/* Google Sheet columns: Category, Item, Price, Description, Veg, Available.
+   Optional column: Tag (e.g. Bestseller). Image columns are intentionally ignored. */
 const SAMPLE = `Category,Item,Price,Description,Veg,Available,Tag
 Dosa,Plain Dosa,60,Crisp golden dosa with sambar and chutneys,Veg,Yes,
 Dosa,Masala Dosa,90,Potato masala folded inside a crisp dosa,Veg,Yes,Bestseller
 Dosa,Cheese Dosa,120,Loaded with melted cheese,Veg,Yes,
 Dosa,Egg Dosa,110,Dosa topped with spiced egg,Non-veg,No,
 Idli & Vada,Idli (2 pcs),50,Soft steamed idli with sambar,Veg,Yes,
-Idli & Vada,Medu Vada,60,Crunchy lentil doughnut,Veg,Yes,
-Drinks,Filter Coffee,35,,Veg,Yes,Bestseller
+Idli & Vada,Medu Vada,60,Crispy lentil fritters with chutney,Veg,Yes,
+Drinks,Filter Coffee,35,Traditional South Indian filter coffee,Veg,Yes,Bestseller
 Drinks,Sweet Lassi,60,Thick and chilled,Veg,Yes,`;
-
 const $ = id => document.getElementById(id);
-const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-let items = [], vegOnly = false, spy = null;
-
-document.title = CONFIG.restaurantName + " – Menu";
-$("title").textContent = CONFIG.restaurantName;
-$("tagline").textContent = CONFIG.tagline;
-document.documentElement.style.setProperty("--cur", JSON.stringify(CONFIG.currencySymbol));
-if (CONFIG.openingHours) $("info").innerHTML += `<span class="pill">${esc(CONFIG.openingHours)}</span>`;
-if (CONFIG.phone) $("info").innerHTML += `<a class="pill" href="tel:+${esc(CONFIG.phone)}">Call us</a>`;
-
-function parseCSV(t){
-  const rows=[]; let r=[], c="", q=false;
-  for (let i=0;i<t.length;i++){
-    const ch=t[i];
-    if (q){ if(ch==='"'){ if(t[i+1]==='"'){c+='"';i++;} else q=false; } else c+=ch; }
-    else if (ch==='"') q=true;
-    else if (ch===","){ r.push(c); c=""; }
-    else if (ch==="\n"||ch==="\r"){ if(ch==="\r"&&t[i+1]==="\n") i++; r.push(c); rows.push(r); r=[]; c=""; }
-    else c+=ch;
-  }
-  if (c||r.length){ r.push(c); rows.push(r); }
-  return rows;
-}
-
-function toItems(csv){
-  const rows = parseCSV(csv).filter(r => r.some(x => x.trim()));
-  if (rows.length < 2) return [];
-  const head = rows[0].map(h => h.trim().toLowerCase());
-  const get = (r,n) => { const i = head.indexOf(n); return i < 0 ? "" : (r[i]||"").trim(); };
-  return rows.slice(1).map(r => ({
-    cat: get(r,"category") || "Other",
-    name: get(r,"item"), price: get(r,"price"), desc: get(r,"description"),
-    img: /^https?:\/\//i.test(get(r,"image")) ? get(r,"image") : "",
-    tag: get(r,"tag"),
-    veg: !/^non/i.test(get(r,"veg")),
-    out: /^(no|n|false|0|sold)/i.test(get(r,"available"))
-  })).filter(i => i.name);
-}
-
-function card(i){
-  return `<article class="item${i.out?" out":""}">
-    ${i.img ? `<img src="${esc(i.img)}" alt="" loading="lazy" onerror="this.remove()">` : ""}
-    <div class="body">
-      <div class="top"><span class="dot ${i.veg?"v":"n"}" role="img" aria-label="${i.veg?"Vegetarian":"Non-vegetarian"}"></span>
-        <div class="name">${esc(i.name)}</div></div>
-      ${i.desc ? `<div class="desc">${esc(i.desc)}</div>` : ""}
-      <div class="foot"><span class="price">${esc(i.price)}</span>
-        ${i.tag && !i.out ? `<span class="tag">${esc(i.tag)}</span>` : ""}
-        ${i.out ? `<span class="sold">Sold out</span>` : ""}</div>
-    </div></article>`;
-}
-
-function render(){
-  const term = $("q").value.trim().toLowerCase();
-  const list = items.filter(i => (!vegOnly || i.veg) && (!term || (i.name+" "+i.desc).toLowerCase().includes(term)));
-  const cats = [...new Set(list.map(i => i.cat))];
-  $("tabs").innerHTML = cats.map((c,k) => `<button class="tab" data-id="c${k}"${k===0?' aria-current="true"':""}>${esc(c)}</button>`).join("");
-  if (!list.length){
-    $("menu").innerHTML = `<p class="msg">${items.length ? "No dishes match. Try clearing the search or the Veg filter." : "The menu is empty right now."}</p>`;
-    return;
-  }
-  $("menu").innerHTML = cats.map((c,k) => {
-    const g = list.filter(i => i.cat === c);
-    return `<section id="c${k}"><h2>${esc(c)}<small>${g.length} item${g.length>1?"s":""}</small></h2>${g.map(card).join("")}</section>`;
-  }).join("");
-  watch();
-}
-
-// highlight the tab of the section currently on screen
-function watch(){
-  if (spy) spy.disconnect();
-  spy = new IntersectionObserver(es => {
-    es.forEach(e => { if (!e.isIntersecting) return;
-      document.querySelectorAll(".tab").forEach(t => {
-        const on = t.dataset.id === e.target.id;
-        if (on){ t.setAttribute("aria-current","true"); t.scrollIntoView({inline:"center",block:"nearest"}); }
-        else t.removeAttribute("aria-current");
-      });
-    });
-  }, {rootMargin:"-130px 0px -70% 0px"});
-  document.querySelectorAll("main section").forEach(s => spy.observe(s));
-}
-
+let items=[], vegOnly=false, activeCategory="All dishes", toastTimer;
+const esc = s => String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function parseCSV(text){const rows=[];let row=[],cell="",quoted=false;for(let i=0;i<text.length;i++){const ch=text[i];if(quoted){if(ch==='"'&&text[i+1]==='"'){cell+='"';i++}else if(ch==='"')quoted=false;else cell+=ch}else if(ch==='"')quoted=true;else if(ch===","){row.push(cell);cell=""}else if(ch==="\n"||ch==="\r"){if(ch==="\r"&&text[i+1]==="\n")i++;row.push(cell);rows.push(row);row=[];cell=""}else cell+=ch}if(cell||row.length){row.push(cell);rows.push(row)}return rows}
+function toItems(csv){const rows=parseCSV(csv).filter(r=>r.some(x=>x.trim()));if(rows.length<2)return[];const h=rows[0].map(x=>x.trim().toLowerCase());const get=(r,n)=>{const ix=h.indexOf(n);return ix<0?"":(r[ix]||"").trim()};return rows.slice(1).map((r,i)=>({id:String(i),cat:get(r,"category")||"Other",name:get(r,"item"),price:get(r,"price"),desc:get(r,"description"),tag:get(r,"tag"),veg:!/^(non|no|false)/i.test(get(r,"veg")),out:/^(no|n|false|0|sold)/i.test(get(r,"available"))})).filter(x=>x.name)}
+function setRestaurantInfo(){document.title=CONFIG.restaurantName+" — South Indian Kitchen";$("brandName").textContent=CONFIG.restaurantName;$("footerName").textContent=CONFIG.restaurantName;$("tagline").textContent=CONFIG.tagline;if(CONFIG.openingHours){$("hoursPill").textContent="◷ "+CONFIG.openingHours;$("footerHours").textContent=CONFIG.openingHours}else $("hoursPill").remove();if(CONFIG.phone){$("footerCall").innerHTML=`Call us: <a href="tel:+${esc(CONFIG.phone)}">+${esc(CONFIG.phone)}</a>`}}
+function buildCategories(list){const cats=["All dishes",...new Set(list.map(i=>i.cat))];if(!cats.includes(activeCategory))activeCategory="All dishes";$("categories").innerHTML=cats.map(c=>`<button class="cat-btn ${c===activeCategory?"active":""}" data-cat="${esc(c)}" aria-pressed="${c===activeCategory}">${c==="All dishes"?"✦ ": "· "}${esc(c)}</button>`).join("")}
+function card(i){return `<article class="item ${i.out?"out":""}"><div class="item-main"><div class="item-top"><span class="vegmark ${i.veg?"":"non"}" aria-label="${i.veg?"Vegetarian":"Non-vegetarian"}" title="${i.veg?"Vegetarian":"Non-vegetarian"}"></span><div class="item-titlegroup"><div class="item-name">${esc(i.name)}</div>${i.tag&&!i.out?`<span class="tag">${esc(i.tag)}</span>`:""}</div><span class="price">${esc(i.price.startsWith("₹")?i.price:CONFIG.currencySymbol+i.price)}</span></div><p class="description">${esc(i.desc||"")}</p>${i.out?'<div class="item-status"><span class="sold">Currently unavailable</span></div>':""}</div></article>`}
+function render(){const term=$("search").value.trim().toLowerCase();let list=items.filter(i=>(!vegOnly||i.veg)&&(activeCategory==="All dishes"||i.cat===activeCategory)&&(!term||(i.name+" "+i.desc+" "+i.cat+" "+i.tag).toLowerCase().includes(term)));buildCategories(items);$("count").textContent=`${list.length} delicious ${list.length===1?"choice":"choices"}`;$("vegBtn").classList.toggle("active",vegOnly);$("vegBtn").setAttribute("aria-pressed",vegOnly);$("featured").style.display=(term||vegOnly||activeCategory!=="All dishes")?"none":"grid";$("menu").className="menu-grid";if(!list.length){$("menu").className="";$("menu").innerHTML=`<div class="empty" style="grid-column:1/-1"><div class="big">✦</div><h3>${items.length?"No dishes found":"Menu is taking a little break"}</h3><p>${items.length?"Try another search or clear a filter.":"Please check back in a moment."}</p><button class="tool-btn" id="clearFilters">Clear filters</button></div>`;$("clearFilters").onclick=()=>{$("search").value="";vegOnly=false;activeCategory="All dishes";render()};return}$("menu").innerHTML=list.map(card).join("")}
+function showToast(msg){$("toast").textContent=msg;$("toast").classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>$("toast").classList.remove("show"),2200)}
 async function load(){
-  let csv = null;
-  if (!CONFIG.sheetCsvUrl) csv = SAMPLE;
-  else {
-    try {
-      const r = await fetch(CONFIG.sheetCsvUrl, {cache:"no-store"});
-      if (!r.ok) throw new Error(r.status);
-      csv = await r.text();
-      try { localStorage.setItem("menu-csv", csv); } catch(e){}
-    } catch(e){ try { csv = localStorage.getItem("menu-csv"); } catch(e2){} }
-  }
-  if (!csv){
-    $("menu").innerHTML = '<p class="msg">Could not load the menu. Check your internet connection.<br><button id="retry">Try again</button></p>';
-    $("retry").onclick = () => { $("menu").innerHTML='<div class="skel"></div><div class="skel"></div>'; load(); };
-    return;
-  }
-  items = toItems(csv);
-  if (!CONFIG.sheetCsvUrl) $("foot").textContent = "Showing sample items. Add your Google Sheet link in index.html.";
+  // Show a working menu immediately; the published sheet will replace it when available.
+  items = toItems(SAMPLE);
   render();
+  if (!CONFIG.sheetCsvUrl) return;
+  // Browsers restrict cross-origin requests from file:// pages. Keep the sample
+  // menu visible when this HTML is opened directly from a computer; the live
+  // Google Sheet will load after the page is hosted on a website.
+  if (window.location.protocol === "file:") return;
+  const controller = typeof AbortController !== "undefined" ? new AbortController() : null;
+  const timeout = controller ? setTimeout(() => controller.abort(), 7000) : null;
+  try {
+    const response = await fetch(CONFIG.sheetCsvUrl, {
+      cache: "no-store",
+      ...(controller ? { signal: controller.signal } : {})
+    });
+    if (!response.ok) throw new Error("HTTP " + response.status);
+    const csv = await response.text();
+    const sheetItems = toItems(csv);
+    if (!sheetItems.length) throw new Error("The sheet has no readable menu rows");
+    items = sheetItems;
+    try { localStorage.setItem("chula-menu-cache", csv); } catch (_) {}
+    render();
+  } catch (error) {
+    // Keep sample dishes visible if the file is opened locally or the sheet is unavailable.
+    let cached = null;
+    try { cached = localStorage.getItem("chula-menu-cache"); } catch (_) {}
+    const cachedItems = cached ? toItems(cached) : [];
+    if (cachedItems.length) { items = cachedItems; render(); }
+    showToast("Menu is open. Live sheet unavailable; showing saved menu.");
+  } finally {
+    if (timeout) clearTimeout(timeout);
+  }
 }
-
-$("q").addEventListener("input", render);
-$("veg").addEventListener("click", e => { vegOnly = !vegOnly; e.currentTarget.setAttribute("aria-pressed", vegOnly); render(); });
-$("tabs").addEventListener("click", e => {
-  const b = e.target.closest(".tab"); if (!b) return;
-  document.getElementById(b.dataset.id)?.scrollIntoView({behavior:"smooth"});
-});
-load();
+$("search").addEventListener("input",render);$("vegBtn").addEventListener("click",()=>{vegOnly=!vegOnly;render()});$("categories").addEventListener("click",e=>{const b=e.target.closest("[data-cat]");if(!b)return;activeCategory=b.dataset.cat;render();if(activeCategory!=="All dishes")document.querySelector(".section-heading").scrollIntoView({behavior:"smooth",block:"start"})});$("themeBtn").addEventListener("click",()=>{document.body.classList.toggle("dark");const on=document.body.classList.contains("dark");$("themeBtn").textContent=on?"☀":"☾";$("themeBtn").setAttribute("aria-label",on?"Switch to light mode":"Switch to dark mode");try{localStorage.setItem("chula-dark",on?"1":"0")}catch(_){}});$("shareBtn").addEventListener("click",async()=>{const data={title:document.title,text:"Explore the menu at "+CONFIG.restaurantName,url:location.href};try{if(navigator.share)await navigator.share(data);else if(navigator.clipboard){await navigator.clipboard.writeText(location.href);showToast("Menu link copied!")}else showToast("Copy this page link to share")}catch(e){if(e.name!=="AbortError")showToast("Unable to share right now")}});window.addEventListener("scroll",()=>$("backTop").classList.toggle("show",window.scrollY>450));$("backTop").addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));try{if(localStorage.getItem("chula-dark")==="1"){document.body.classList.add("dark");$("themeBtn").textContent="☀"}}catch(_){}setRestaurantInfo();load();
 </script>
 </body>
 </html>
